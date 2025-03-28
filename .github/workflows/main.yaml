@@ -14,14 +14,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: Install AWS CLI, Kubectl, and Helm
         run: |
-          sudo apt-get update
-          sudo apt-get install -y curl unzip
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
+          sudo apt-get update && sudo apt-get install -y curl unzip
+          
+          # Update AWS CLI if already installed
+          if aws --version &>/dev/null; then
+            echo "AWS CLI already installed, updating..."
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install --update
+          else
+            echo "Installing AWS CLI..."
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+          fi
+          
           aws --version
+
 
       - name: Get Commit ID
         run: echo "COMMIT_ID=$(git rev-parse --short=7 HEAD)" >> $GITHUB_ENV
