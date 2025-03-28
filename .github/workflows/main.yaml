@@ -74,10 +74,11 @@ jobs:
           sudo apt-get update && sudo apt-get install -y curl unzip
           
           # Install AWS CLI
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
-          aws --version
+            aws --version &>/dev/null; then
+            echo "AWS CLI already installed, updating..."
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install --update
           
           # Install Kubectl
           curl -sLO "https://dl.k8s.io/release/v1.27.3/bin/linux/amd64/kubectl"
