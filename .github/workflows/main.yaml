@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y awscli kubectl helm
+          sudo apt-get install -y awscli  
 
       - name: Get Commit ID
         run: echo "COMMIT_ID=$(git rev-parse --short=7 HEAD)" >> $GITHUB_ENV
