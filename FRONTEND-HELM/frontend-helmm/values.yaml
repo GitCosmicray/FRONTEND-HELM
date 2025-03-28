@@ -1,0 +1,19 @@
+replicaCount: 2
+
+image:
+  frontend:
+    repository: 248189933829.dkr.ecr.us-west-2.amazonaws.com/react-frontend
+    tag: latest
+
+
+service:
+  frontend:
+    type: ClusterIP
+    port: 80
+
+
+ingress:
+  enabled: true
+  className: nginx
+  host: aa9c0dcf3a39a40c0b337039ee79da89-1225075295.us-west-2.elb.amazonaws.com  
+  annotations: {}
