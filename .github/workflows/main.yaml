@@ -96,6 +96,12 @@ jobs:
       - name: Get Commit ID
         run: echo "COMMIT_ID=$(git rev-parse --short=7 HEAD)" >> $GITHUB_ENV
 
+      - name: Configure AWS Credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region ${{ secrets.AWS_REGION }}
+          
       - name: Configure AWS CLI for EKS
         run: |
           echo "Configuring AWS CLI for EKS..."
