@@ -2,8 +2,8 @@ replicaCount: 2
 
 image:
   frontend:
-    repository: 248189933829.dkr.ecr.us-west-2.amazonaws.com/react-frontend
-    tag: latest
+    repository: us-central1-docker.pkg.dev/consummate-rig-453502-q2/private-image-repo/frontend-app
+    tag: v1
 
 
 service:
