@@ -14,7 +14,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://aa9c0dcf3a39a40c0b337039ee79da89-1225075295.us-west-2.elb.amazonaws.com/backend/signup", formData);
+      const response = await axios.post("http://34.29.88.248/backend/signup", formData);
       alert(response.data.message);
       navigate("/login");
     } catch (error) {
