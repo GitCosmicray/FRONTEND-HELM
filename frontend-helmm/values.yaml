@@ -15,5 +15,5 @@ service:
 ingress:
   enabled: true
   className: nginx
-  host: 34.29.88.248  
+  # host: 34.29.88.248  
   annotations: {}
