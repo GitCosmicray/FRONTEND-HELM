@@ -42,8 +42,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'PAT-access-github', variable: 'TOKEN')]) {
           sh '''
-            git clone https://github.com/$TOKEN@github.com/GitCosmicray/FRONTEND-HELM.git
-            cd FRONTEND-HELM/frontend-helmm
+            cd frontend-helmm
             sed -i "s|tag:.*|tag: '${TAG}'|" values.yaml
             git config user.name "jenkins-bot"
             git config user.email "jenkins@yourcompany.com"
