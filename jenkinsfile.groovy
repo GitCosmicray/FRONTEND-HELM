@@ -48,7 +48,7 @@ pipeline {
             git config user.email "jenkins@yourcompany.com"
             git add values.yaml
             git commit -m "Update image tag to ${TAG}"
-            git push origin main
+            git push https://$TOKEN@github.com/GitCosmicray/FRONTEND-HELM.git main
           '''
         }
       }
