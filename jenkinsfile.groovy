@@ -8,7 +8,7 @@ pipeline {
     IMAGE_NAME = 'frontend-app'
     TAG = "v${BUILD_NUMBER}"
     GCP_KEY = credentials('GCP-jenkins-json') 
-    // PAT_TOKEN = credentials('PAT-access-github')
+    // PAT_TOKEN = credentials('PAT-access-github') //
   }
 
   stages {
