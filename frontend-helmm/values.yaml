@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   frontend:
     repository: us-central1-docker.pkg.dev/consummate-rig-453502-q2/private-image-repo/frontend-app
-    tag: 'v38'
+    tag: 'v39'
 
 
 service:
