@@ -48,7 +48,7 @@ pipeline {
           git config user.email "jenkins@yourcompany.com"
           git add values.yaml
           git commit -m "Update image tag to ${TAG}"
-          git push https://${PAT-access-github}@github.com/GitCosmicray/FRONTEND-HELM.git
+          git push https://${PAT_TOKEN}@github.com/GitCosmicray/FRONTEND-HELM.git
         '''
       }
     }
