@@ -40,7 +40,7 @@ pipeline {
 
      stage('Clone Helm Repo and Update Tag') {
       steps {
-        withCredentials([string(credentialsId: 'PAT-access-github', variable: 'TOKEN')]) {
+        // withCredentials([string(credentialsId: 'PAT-access-github', variable: 'TOKEN')]) {
           sh '''
             git clone https://github.com/GitCosmicray/FRONTEND-HELM.git
             cd FRONTEND-HELM/frontend-helmm
@@ -51,7 +51,7 @@ pipeline {
             git commit -m "Update image tag to $TAG"
             git push https://github.com/GitCosmicray/FRONTEND-HELM.git
           '''
-        }
+        // }
       }
     }
   }
