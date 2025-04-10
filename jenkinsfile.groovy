@@ -42,14 +42,14 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'PAT-access-github', variable: 'TOKEN')]) {
           sh '''
-            git clone https://$TOKEN@github.com/GitCosmicray/FRONTEND-HELM.git
+            git clone https://github.com/GitCosmicray/FRONTEND-HELM.git
             cd FRONTEND-HELM/frontend-helmm
             sed -i 's|tag:.*|tag: "'$TAG'"|' values.yaml
             git config user.name "jenkins-bot"
             git config user.email "jenkins@yourcompany.com"
             git add values.yaml
             git commit -m "Update image tag to $TAG"
-            git push https://$TOKEN@github.com/GitCosmicray/FRONTEND-HELM.git
+            git push https://github.com/GitCosmicray/FRONTEND-HELM.git
           '''
         }
       }
